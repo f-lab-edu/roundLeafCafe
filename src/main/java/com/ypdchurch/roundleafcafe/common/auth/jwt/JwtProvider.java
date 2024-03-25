@@ -27,7 +27,8 @@ public class JwtProvider {
     public static final String TOKEN_PREFIX = "Bearer "; // 스페이스 필요함
     public static final String REFRESH_TOKEN_HEADER = "refreshToken";
 
-    private final String secretKey;
+
+    private String secretKey;
 
     public JwtProvider(@Value("${custom.jwt.secretKey}") String secretKey) {
         this.secretKey = secretKey;

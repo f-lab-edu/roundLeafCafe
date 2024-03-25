@@ -1,7 +1,14 @@
 package com.ypdchurch.roundleafcafe.order.enums;
 
 public enum OrderStatus {
-    ORDER_ACCEPTED("01"), ORDER_CONFIRMED("02"), COOKING("03"), MENU_ALREADY("04"), PICK_UP_COMPLETE("05"), WHOLE_COMPLETE("06"), CANCEL("90");
+    ORDER_START("01"),
+    ORDER_ACCEPTED("02"),
+    ORDER_CONFIRMED("03"),
+    COOKING("04"),
+    MENU_ALREADY_COMPLETE("05"),
+    PICK_UP_COMPLETE("06"),
+    WHOLE_COMPLETE("07"),
+    CANCEL("90");
 
     private String code;
 

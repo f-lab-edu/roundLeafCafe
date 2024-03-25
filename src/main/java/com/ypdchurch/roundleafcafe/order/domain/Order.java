@@ -1,7 +1,6 @@
 package com.ypdchurch.roundleafcafe.order.domain;
 
 import com.ypdchurch.roundleafcafe.common.domain.BaseEntity;
-import com.ypdchurch.roundleafcafe.member.domain.Member;
 import com.ypdchurch.roundleafcafe.order.enums.OrderStatus;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
@@ -41,15 +40,39 @@ public class Order extends BaseEntity {
     private String requests;
 
     @Enumerated(EnumType.STRING)
-    private OrderStatus orderStatus;
-
-    public Order changeOrderStatus(OrderStatus orderStatus) {
-        this.orderStatus = orderStatus;
-        return this.of(this);
+    private OrderStatus orderStatus;    
+    public Order accepted() {
+        this.orderStatus = OrderStatus.ORDER_ACCEPTED;
+        return this;
     }
 
-    public Order orderAccept() {
-        this.orderStatus = OrderStatus.ORDER_ACCEPTED;
+    public Order confirmed() {
+        this.orderStatus = OrderStatus.ORDER_CONFIRMED;
+        return this;
+    }
+
+    public Order menuAlready() {
+        this.orderStatus = OrderStatus.MENU_ALREADY_COMPLETE;
+        return this;
+    }
+
+    public Order cooking() {
+        this.orderStatus = OrderStatus.COOKING;
+        return this;
+    }
+
+    public Order pickup() {
+        this.orderStatus = OrderStatus.PICK_UP_COMPLETE;
+        return this;
+    }
+
+    public Order wholeCompete() {
+        this.orderStatus = OrderStatus.WHOLE_COMPLETE;
+        return this;
+    }
+
+    public Order cancel() {
+        this.orderStatus = OrderStatus.CANCEL;
         return this;
     }
 

@@ -2,7 +2,6 @@ package com.ypdchurch.roundleafcafe.order.service;
 
 import com.ypdchurch.roundleafcafe.member.service.MemberService;
 import com.ypdchurch.roundleafcafe.order.domain.Order;
-import com.ypdchurch.roundleafcafe.order.enums.OrderStatus;
 import com.ypdchurch.roundleafcafe.order.repository.OrderRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -24,8 +23,7 @@ public class OrderService {
     }
 
     @Transactional
-    public Order changeOrderStatus(Order order, OrderStatus orderStatus) {
-        Order changedOrderStatus = order.changeOrderStatus(orderStatus);
-        return orderRepository.save(changedOrderStatus);
+    public Order save(Order order) {
+        return orderRepository.save(order);
     }
 }
